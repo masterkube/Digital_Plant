@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>DuplicateNextTestAgent</AgentName>
+	<ProcessName>PickedTests</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>TestResultOfNextTest</Element>
+	<Element>ChBacktoNextNewTest</Element>
+	<Element>ReNameTheTest</Element>
+    <Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<Sequence>
+			<Tell><element><elementName>ChBacktoNextNewTest</elementName></element></Tell>
+			<Tell><element><elementName>TestResultOfNextTest</elementName></element></Tell>
+			<!-- <Ask><action><actionName>ChTestResultOfNextTest</actionName></action><internal>true</internal></Ask> -->
+		</Sequence>
+		<Sequence>
+			<Ask><action><actionName>TestResultOfNextNewTest</actionName></action><internal>true</internal></Ask>
+			<!-- <Tell><element><elementName>ChTestResultOfNextNewTest</elementName></element></Tell> -->
+			<AgentCommand><AgentName>CopyOfNextTestAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

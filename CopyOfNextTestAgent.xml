@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>CopyOfNextTestAgent</AgentName>
+	<Sequence>
+		<Ask><action><actionName>ChTestResultOfNextTest</actionName></action><internal>true</internal></Ask>
+		<Compose>
+               <AgentCommand>
+	               <AgentName>CopyTheTestNodeAgent</AgentName>
+           	    <Ask><action><actionName>CopyTheTestNode</actionName></action><internal>true</internal></Ask>
+               </AgentCommand>
+               <Tell><action><actionName>CopyTheTestNode</actionName></action><internal>true</internal></Tell>
+           </Compose>
+		<Ask><action><actionName>ChCopyTheTestNode</actionName></action><internal>true</internal></Ask>
+		<Tell><element><elementName>ChTestResultOfNextNewTest</elementName></element></Tell>
+		<Tell><element><elementName>TestResultOfNextTest</elementName></element></Tell>
+		<Ask><action><actionName>TestResultOfNextNewTest</actionName></action><internal>true</internal></Ask>
+		<AgentCommand><AgentName>CopyOfNextTestAgent</AgentName></AgentCommand>
+	</Sequence>
+</Agent>

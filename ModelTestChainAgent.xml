@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>ModelTestChainAgent</AgentName>
+	<ProcessName>ModelTestChains</ProcessName>
+	<AvatarName>TestChainName</AvatarName>
+	<Element>TestChainName</Element>
+	<Element>TestchainLink</Element>
+	<Element>MakeFirstModelTestNode</Element>
+	<Element>ChofMakeFirstModelTestNode</Element>
+    <Compose>
+		<Tell><action><actionName>NameOfTheTestChain</actionName></action></Tell>
+		<Tell><element><elementName>TestchainLink</elementName></element></Tell>
+		<Sequence>
+			<Tell><element><elementName>MakeFirstModelTestNode</elementName></element></Tell>
+			<Ask><action><actionName>CHForNextTestNode</actionName></action><internal>true</internal></Ask>
+			<AgentCommand><AgentName>ModelTestChainLoopAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

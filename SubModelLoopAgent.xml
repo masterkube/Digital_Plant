@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>SubModelLoopAgent</AgentName>
+	<Compose>
+		<Tell><element><elementName>ChOfFirstSubModel</elementName></element></Tell>
+		<Ask><action><actionName>ChForNextCycle</actionName></action><internal>true</internal></Ask>
+		<Sequence>
+		<!-- Waiting For the Tell sognal which needs to come from the Assembly Node -->
+			<Ask><action><actionName>MakeSubAssembly</actionName></action><internal>true</internal></Ask>
+			<Compose>
+				<AgentCommand>
+					<AgentName>SubAssemblyAgent</AgentName>
+					<Ask><action><actionName>CreateSubAssembly</actionName></action><internal>true</internal></Ask>
+				</AgentCommand>
+				<Tell><action><actionName>CreateSubAssembly</actionName></action><internal>true</internal></Tell>
+			</Compose>
+			<!-- Got the Channels of sub assembly Through the below interaction -->
+			<Ask><action><actionName>GetBackToSubModel</actionName></action><internal>true</internal></Ask>
+			<!-- Through the below interaction triggering the TestChain of thhis submodel to make a copy of the testchain -->
+			<Tell><element><elementName>Trigger</elementName></element></Tell>
+			<!-- After done the Copy get the trigger element back to the submodel to trigger the testchain for the 2nd Cycle Through the below interaction -->
+			<Ask><action><actionName>ConnectWithSubModel</actionName></action><internal>true</internal></Ask>
+			<Tell><element><elementName>ChToConnectWithPrevSubNode</elementName></element></Tell>
+			<Ask><action><actionName>ConnectWithPrevSubNode</actionName></action><internal>true</internal></Ask>
+			<AgentCommand><AgentName>SubModelLoopAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

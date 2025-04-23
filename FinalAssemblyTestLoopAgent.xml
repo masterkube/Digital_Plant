@@ -1,0 +1,19 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FinalAssemblyTestLoopAgent</AgentName>
+    <Choice>
+		<ChoiceOption>
+			<Ask><action><actionName>ChToCreateTheNextNewAssemblyTest</actionName></action><internal>true</internal></Ask>
+			<OptionAction>
+				<AgentCommand><AgentName>CreateFinalAssemblyTestLoopAgentOne</AgentName></AgentCommand>
+			</OptionAction>
+		</ChoiceOption>
+		<ChoiceOption>
+			<Ask><action><actionName>ChToCreateTheNextAssemblyTest</actionName></action><internal>true</internal></Ask>
+			<OptionAction>
+				<AgentCommand><AgentName>CreateFinalAssemblyTestLoopAgentTwo</AgentName></AgentCommand>
+			</OptionAction>
+		</ChoiceOption>
+	</Choice>
+</Agent>

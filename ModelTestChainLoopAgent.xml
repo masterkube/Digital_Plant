@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>ModelTestChainLoopAgent</AgentName>
+	<Choice>
+        <ChoiceOption>
+		    <Ask><action><actionName>ForAssembly</actionName></action><internal>true</internal></Ask>
+            <OptionAction>
+                <Sequence>
+                    <Tell><element><elementName>ChForAssembly</elementName></element></Tell>
+                    <Compose>
+                        <AgentCommand>
+                            <AgentName>AssemblyTestChainAgent</AgentName>
+                            <Ask><action><actionName>CreateAssemblyTestChain</actionName></action><internal>true</internal></Ask>
+                        </AgentCommand>
+                        <Tell><action><actionName>CreateAssemblyTestChain</actionName></action><internal>true</internal></Tell>
+                    </Compose>
+                    <Ask><action><actionName>ChToReassembleAssembly</actionName></action><internal>true</internal></Ask>
+                    <AgentCommand><AgentName>ModelTestChainLoopAgent</AgentName></AgentCommand>
+                </Sequence>
+            </OptionAction>
+        </ChoiceOption>
+        <ChoiceOption>
+		    <Ask><action><actionName>ForSubmodel</actionName></action><internal>true</internal></Ask>
+            <OptionAction>
+                <Sequence>
+                    <Tell><element><elementName>ChForSubmodel</elementName></element></Tell>
+                    <Compose>
+                        <AgentCommand>
+                            <AgentName>SubmodelTestChainAgent</AgentName>
+                            <Ask><action><actionName>CreateSubModelTestChain</actionName></action><internal>true</internal></Ask>
+                        </AgentCommand>
+                        <Tell><action><actionName>CreateSubModelTestChain</actionName></action><internal>true</internal></Tell>
+                    </Compose>
+                    <Ask><action><actionName>ChToReassemble</actionName></action><internal>true</internal></Ask>
+                    <AgentCommand><AgentName>ModelTestChainLoopAgent</AgentName></AgentCommand>
+                </Sequence>
+            </OptionAction>
+        </ChoiceOption>
+    </Choice>
+</Agent>

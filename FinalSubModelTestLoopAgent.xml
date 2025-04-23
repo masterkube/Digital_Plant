@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FinalSubModelTestLoopAgent</AgentName>
+	<Choice>
+		<ChoiceOption>
+			<Ask><action><actionName>ChToDuplicateTheNextNewTest</actionName></action><internal>true</internal></Ask>
+			<OptionAction>
+				<AgentCommand><AgentName>DuplicateFinalTestLoopAgentOne</AgentName></AgentCommand>
+			</OptionAction>
+		</ChoiceOption>
+		<ChoiceOption>
+			<Ask><action><actionName>ChToDuplicateTheNextTest</actionName></action><internal>true</internal></Ask>
+			<OptionAction>
+				<AgentCommand><AgentName>DuplicateFinalTestLoopAgentTwo</AgentName></AgentCommand>
+			</OptionAction>
+		</ChoiceOption>
+	</Choice>
+</Agent>

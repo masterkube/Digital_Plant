@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FinalAssemblyTestAgnt</AgentName>
+	<ProcessName>AssemblyTests</ProcessName>
+	<AvatarName>UniqueID</AvatarName>
+	<Element>TestResultOfFinalAssemblyTest</Element>
+	<Element>TestResultOfNextAssemblyTest</Element>
+	<Element>UniqueID</Element>
+    <Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<Sequence>
+			<Tell><element><elementName>TestResultOfNextAssemblyTest</elementName></element></Tell>
+			<Ask><action><actionName>ChTestResultOfNextAssemblyTest</actionName></action><internal>true</internal></Ask>
+			<AgentCommand><AgentName>PassingTheTestLevelThreeDecisionAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

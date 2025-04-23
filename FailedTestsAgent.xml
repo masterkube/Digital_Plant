@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FailTestsAgent</AgentName>
+	<ProcessName>FailTests</ProcessName>
+	<AvatarName>Reason</AvatarName>
+	<Element>Failed</Element>
+	<Element>Reason</Element>
+    <Compose>
+	    <Tell><action><actionName>ReasonForFail</actionName></action></Tell>
+    </Compose>
+</Agent>

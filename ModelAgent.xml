@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>ModelAgent</AgentName>
+	<ProcessName>Models</ProcessName>
+	<AvatarName>ModelName</AvatarName>
+	<Element>ModelName</Element>
+	<Compose>
+	<Tell><action><actionName>Testing</actionName></action></Tell>
+		<Sequence>
+			<Ask><action><actionName>SelectTestChain</actionName></action></Ask>
+			<Tell><element><elementName>PickTestChain</elementName></element></Tell>
+			<Ask><action><actionName>TestchainLink</actionName></action><internal>true</internal></Ask>
+			<AgentCommand><AgentName>ModelChoiceAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

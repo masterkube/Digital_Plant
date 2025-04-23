@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextNewAssemblyTestLoopAgent</AgentName>
+    <Sequence>
+        <!-- Waiting to get signal from the duplicated test chain node -->
+        <Ask><action><actionName>ChToCreateTheNextNewAssemblyTest</actionName></action><internal>true</internal></Ask>
+        <!-- through the below command resend the link to its upstream testchain node -->
+        <Tell><element><elementName>ChToReassembleNextNewAssembly</elementName></element></Tell>
+        <Compose>
+        <!-- After the node receives signal from the testchain now this test node makes its copy node give that to the testchain -->
+            <AgentCommand>
+                <AgentName>NextNewAssemblyTestAgent</AgentName>
+                <Ask><action><actionName>CreateNextNewAssemblyTest</actionName></action><internal>true</internal></Ask>
+            </AgentCommand>
+            <Tell><action><actionName>CreateNextNewAssemblyTest</actionName></action><internal>true</internal></Tell>
+        </Compose>
+        <!-- After the Duplicate test node has been created waiting for the link that needs to pass to the downstream test node -->
+        <Ask><action><actionName>ChBacktoNextAssemblyTest</actionName></action><internal>true</internal></Ask>
+        <!-- through the below command passing the duplicated connecting link to the downstream test node to create its duplicate with this link -->
+        <Tell><element><elementName>ChToCreateTheNextAssemblyTest</elementName></element></Tell>
+        <!-- Getting the communication link back from the downstream for the next cycle -->
+        <Ask><action><actionName>ChToReassembleNextAssembly</actionName></action><internal>true</internal></Ask>
+        <!-- Finally reload the agent for the next iteration -->
+        <AgentCommand><AgentName>NextNewAssemblyTestLoopAgent</AgentName></AgentCommand>
+    </Sequence>
+</Agent>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextNewSubModelLoopAgent</AgentName>
+	<Sequence>
+        <Ask><action><actionName>ChToConnectWithNextSubNode</actionName></action><internal>true</internal></Ask>
+		<Compose>
+			<AgentCommand>
+			    <AgentName>NextNewSubAssemblyAgent</AgentName>
+				<Ask><action><actionName>CreateNextNewSubAssembly</actionName></action><internal>true</internal></Ask>
+			</AgentCommand>
+			<Tell><action><actionName>CreateNextNewSubAssembly</actionName></action><internal>true</internal></Tell>
+		</Compose>
+		<Ask><action><actionName>GetBackToNextNewSubModel</actionName></action><internal>true</internal></Ask>
+        <Tell><element><elementName>Trigger</elementName></element></Tell>
+		<Ask><action><actionName>ConnectWithSubModel</actionName></action><internal>true</internal></Ask>
+		<Tell><element><elementName>ChToConnectWithPrevSubNode</elementName></element></Tell>
+		<Tell><element><elementName>ConnectWithNextSubNode</elementName></element></Tell>
+		<Ask><action><actionName>ConnectWithPrevSubNode</actionName></action><internal>true</internal></Ask>
+		<AgentCommand><AgentName>NextNewSubModelLoopAgent</AgentName></AgentCommand>
+	</Sequence>
+</Agent>

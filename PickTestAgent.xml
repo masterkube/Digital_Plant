@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>PickTestAgent</AgentName>
+	<Sequence>
+		<Ask><action><actionName>AddTest</actionName></action></Ask>
+		<Tell><element><elementName>PickTest</elementName></element></Tell>
+        <Ask><action><actionName>CHForNextTestNodeOfTestChain</actionName></action><internal>true</internal></Ask>
+        <AgentCommand><AgentName>PickNextTestAgent</AgentName></AgentCommand>
+    </Sequence>
+</Agent>

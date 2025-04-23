@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>CopyTheTestNodeAgent</AgentName>
+	<ProcessName>SubAssemblyTests</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>ChCopyTheTestNode</Element>
+	<Element>ReNameTheTest</Element>
+	<Element>LinkWithPrevNode</Element>
+    <Compose>
+		<!-- The below line Shows the Name Of Duplicate TestChain -->
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<Sequence>
+			<Tell><element><elementName>LinkWithPrevNode</elementName></element></Tell>
+			<Tell><element><elementName>ChCopyTheTestNode</elementName></element></Tell>
+			<Ask><action><actionName>ChLinkWithPrevNode</actionName></action><internal>true</internal></Ask>
+			<Ask><action><actionName>LinkWithPrevNode</actionName></action><internal>true</internal></Ask>
+			<Tell><element><elementName>ChLinkWithPrevNode</elementName></element></Tell>
+		</Sequence>
+	</Compose>
+</Agent>

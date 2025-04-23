@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextNewSubAssemblyAgent</AgentName>
+	<ProcessName>SubAssemblies</ProcessName>
+	<AvatarName>UniqueID</AvatarName>
+	<Element>UniqueID</Element>
+	<Element>GetBackToNextNewSubModel</Element>
+	<Element>ConnectWithNextNewSubAssembly</Element>
+	<!-- <Element>Linked</Element> -->
+	<Compose>
+		<Tell><action><actionName>SubAssemblyInfo</actionName></action></Tell>	
+		<!-- <Tell><action><actionName>GenUniqueId</actionName></action><internal>true</internal></Tell>	 -->
+		<Sequence>
+			<!-- <Ask><action><actionName>GenUniqueId</actionName></action><internal>true</internal></Ask>	 -->
+			<Tell><element><elementName>GetBackToNextNewSubModel</elementName></element><internal>true</internal></Tell>
+			<Tell><element><elementName>ConnectWithNextNewSubAssembly</elementName></element><internal>true</internal></Tell>
+			<Ask><action><actionName>ConnectWithNextSubAssembly</actionName></action><internal>true</internal></Ask>
+			<Tell><action><actionName>Trigger</actionName></action><internal>true</internal></Tell>
+			<Tell><action><actionName>NextSubAssembly</actionName></action></Tell>
+		</Sequence>
+		<Sequence>
+			<Ask><action><actionName>Trigger</actionName></action><internal>true</internal></Ask>
+			<Ask><action><actionName>AttachWithAssembly</actionName></action></Ask>
+			<Tell><element><elementName>PickAssembly</elementName></element></Tell>
+			<Ask><action><actionName>GetNameOfTheAssembly</actionName></action><internal>true</internal></Ask>
+			<Tell><action><actionName>AssemblyIs</actionName></action></Tell>
+		</Sequence>
+	</Compose>
+</Agent>

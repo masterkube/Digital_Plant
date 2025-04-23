@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextNewTestLoopAgent</AgentName>
+    <Sequence>
+    <!-- Waiting to get signal from the duplicated test chain node -->
+        <Ask><action><actionName>MakeNextNewModelTestNode</actionName></action><internal>true</internal></Ask>
+        <Compose>
+            <AgentCommand>
+                <AgentName>NextNewModelTestAgent</AgentName>
+                <Ask><action><actionName>CreateNextNewModelTest</actionName></action><internal>true</internal></Ask>
+            </AgentCommand>
+            <Tell><action><actionName>CreateNextNewModelTest</actionName></action><internal>true</internal></Tell>
+        </Compose>
+        <Tell><element><elementName>ChOfMakeNextNewModelTestNode</elementName></element></Tell>
+        <Ask><action><actionName>ChOfMakeNextModelTestNode</actionName></action><internal>true</internal></Ask>
+        <AgentCommand><AgentName>NextNewTestLoopAgent</AgentName></AgentCommand>
+    </Sequence>
+</Agent>

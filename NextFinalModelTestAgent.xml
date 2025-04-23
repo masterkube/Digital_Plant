@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextFinalModelTestAgent</AgentName>
+	<ProcessName>ModelTests</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>ReNameTheTest</Element>
+	<Element>ConnectWithPrevTestNode</Element>
+	<Element>Testing</Element>
+	<Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+        <AgentCommand><AgentName>NextFinalAssemblyTestLoopAgent</AgentName></AgentCommand>
+        <AgentCommand><AgentName>NextFinalSubModelTestLoopAgent</AgentName></AgentCommand>
+        <Tell><element><elementName>ConnectWithPrevTestNode</elementName></element></Tell>
+	</Compose>
+</Agent>

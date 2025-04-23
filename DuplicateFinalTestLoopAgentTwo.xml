@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>DuplicateFinalTestLoopAgentTwo</AgentName>
+	<Sequence>
+        <!-- through the below command resend the link to its upstream testchain node -->
+        <Tell><element><elementName>ChToReassembleNext</elementName></element></Tell>    
+        <Compose>
+        <!-- After the node receives signal from the testchain now this test node makes its copy node give that to the testchain -->
+			<AgentCommand>
+				<AgentName>DuplicatFinalTestAgnt</AgentName>
+				<Ask><action><actionName>DuplicatFinalTst</actionName></action><internal>true</internal></Ask>
+			</AgentCommand>
+		    <Tell><action><actionName>DuplicatFinalTst</actionName></action><internal>true</internal></Tell>
+		</Compose>
+				<Ask><action><actionName>ChToDuplicateTheNextTest</actionName></action><internal>true</internal></Ask>
+        <!-- Finally reload the agent for the next iteration -->
+        <AgentCommand><AgentName>DuplicateFinalTestLoopAgentTwo</AgentName></AgentCommand>
+    </Sequence>
+</Agent>

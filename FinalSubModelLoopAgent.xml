@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FinalSubModelLoopAgent</AgentName>
+	<Choice>
+		<ChoiceOption>
+			<Ask><action><actionName>ChToConnectWithPrevSubNode</actionName></action><internal>true</internal></Ask>
+			<OptionAction>
+				<Sequence>
+					<Compose>
+						<AgentCommand>
+							<AgentName>FinalSubAssemblyAgent</AgentName>
+							<Ask><action><actionName>CreateFinalSubAssembly</actionName></action><internal>true</internal></Ask>
+						</AgentCommand>
+						<Tell><action><actionName>CreateFinalSubAssembly</actionName></action><internal>true</internal></Tell>
+					</Compose>
+					<Ask><action><actionName>GetBackToFinalSubModel</actionName></action><internal>true</internal></Ask>
+            		<Tell><element><elementName>Trigger</elementName></element></Tell>
+					<!-- <Ask><action><actionName>ChConnectWithSubModel</actionName></action><internal>true</internal></Ask> -->
+					<Ask><action><actionName>ConnectWithSubModel</actionName></action><internal>true</internal></Ask>
+					<Tell><element><elementName>ConnectWithPrevSubNode</elementName></element></Tell>
+					<AgentCommand><AgentName>FinalSubModelLoopAgent</AgentName></AgentCommand>
+				</Sequence>
+			</OptionAction>
+		</ChoiceOption>
+		<ChoiceOption>
+			<Ask><action><actionName>ChToConnectWithNextSubNode</actionName></action><internal>true</internal></Ask>
+			<OptionAction>
+				<Sequence>
+					<Compose>
+						<AgentCommand>
+							<AgentName>FinalSubAsmblyAgnt</AgentName>
+							<Ask><action><actionName>MakeFinalSubAssembly</actionName></action><internal>true</internal></Ask>
+						</AgentCommand>
+						<Tell><action><actionName>MakeFinalSubAssembly</actionName></action><internal>true</internal></Tell>
+					</Compose>
+					<Ask><action><actionName>GetBackToFinalSubModel</actionName></action><internal>true</internal></Ask>
+					<Tell><element><elementName>Trigger</elementName></element></Tell>
+					<!-- <Ask><action><actionName>ChConnectWithSubModel</actionName></action><internal>true</internal></Ask> -->
+					<Ask><action><actionName>ConnectWithSubModel</actionName></action><internal>true</internal></Ask>
+					<Tell><element><elementName>ConnectWithNextSubNode</elementName></element></Tell>
+					<AgentCommand><AgentName>FinalSubModelLoopAgent</AgentName></AgentCommand>
+				</Sequence>
+			</OptionAction>
+		</ChoiceOption>
+	</Choice>
+</Agent>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextFinalTestLoopAgent</AgentName>
+    <Sequence>
+        <Ask><action><actionName>MakeNextModelTestNode</actionName></action><internal>true</internal></Ask>
+        <Compose>
+            <AgentCommand>
+                <AgentName>NextFinalModelTestAgent</AgentName>
+                <Ask><action><actionName>CreateNextFinalModelTest</actionName></action><internal>true</internal></Ask>
+            </AgentCommand>
+            <Tell><action><actionName>CreateNextFinalModelTest</actionName></action><internal>true</internal></Tell>
+        </Compose>
+        <Tell><element><elementName>ChofMakeNextModelTestNode</elementName></element></Tell>
+        <AgentCommand><AgentName>NextFinalTestLoopAgent</AgentName></AgentCommand>
+    </Sequence>
+</Agent>

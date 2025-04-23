@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FinalTestAgent</AgentName>
+	<ProcessName>TestsInTestChain</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>ReNameTheTest</Element>
+	<Element>ConnectWithNextTestNodeOfTestChain</Element>
+	<Element>ConnectWithPrevTestNodeOfTestChain</Element>
+	<Element>FinalTest</Element>
+	<Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<Sequence>
+			<Tell><element><elementName>ConnectWithPrevTestNodeOfTestChain</elementName></element></Tell>
+			<Ask><action><actionName>MakeNextModelTestNode</actionName></action><internal>true</internal></Ask>
+			<Compose>
+				<AgentCommand>
+					<AgentName>NextFinalModelTestAgent</AgentName>
+					<Ask><action><actionName>CreateNextFinalModelTest</actionName></action><internal>true</internal></Ask>
+				</AgentCommand>
+				<Tell><action><actionName>CreateNextFinalModelTest</actionName></action><internal>true</internal></Tell>
+			</Compose>
+			<Tell><element><elementName>ChofMakeNextModelTestNode</elementName></element></Tell>
+			<AgentCommand><AgentName>NextFinalTestLoopAgent</AgentName></AgentCommand>
+		</Sequence>
+		<Sequence>
+			<Tell><element><elementName>ConnectWithNextTestNodeOfTestChain</elementName></element></Tell>
+			<Ask><action><actionName>MakeNextNewModelTestNode</actionName></action><internal>true</internal></Ask>
+			<Compose>
+				<AgentCommand>
+					<AgentName>NextNewFinalModelTestAgent</AgentName>
+					<Ask><action><actionName>CreateNextNewFinalModelTest</actionName></action><internal>true</internal></Ask>
+				</AgentCommand>
+				<Tell><action><actionName>CreateNextNewFinalModelTest</actionName></action><internal>true</internal></Tell>
+			</Compose>
+			<Tell><element><elementName>ChofMakeNextNewModelTestNode</elementName></element></Tell>
+			<AgentCommand><AgentName>NextNewFinalTestLoopAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

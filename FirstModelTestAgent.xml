@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FirstModelTestAgent</AgentName>
+	<ProcessName>ModelTests</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>ReNameTheTest</Element>
+	<Element>MakeNextModelTestNode</Element>
+	<Element>ChofMakeNextModelTestNode</Element>
+	<Element>CHForNextTestNode</Element>
+	<Element>Testing</Element>
+    <Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<AgentCommand><AgentName>FirstSubModelTestLoopAgent</AgentName></AgentCommand>
+		<AgentCommand><AgentName>FirstAssemblyTestLoopAgent</AgentName></AgentCommand>
+		<Tell><element><elementName>MakeNextModelTestNode</elementName></element></Tell>
+		<Sequence>
+		<!-- through the below link this testnode is getting connected with the upstream testchain node -->
+			<Tell><element><elementName>CHForNextTestNode</elementName></element></Tell>
+			<!-- Channel link to getting connecting with the Test node that the testchain is going to select next -->
+			<Ask><action><actionName>ConnectWithPrevTestNode</actionName></action><internal>true</internal></Ask>
+		</Sequence>
+	</Compose>
+</Agent>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+<AgentName>AttachedAssembliesDisplayAgent</AgentName> 
+  
+    <Replicate>
+	 
+        <Sequence>
+            <Ask><action><actionName>PassAssemblyNameToRecord</actionName></action><internal>true</internal></Ask>
+            <Tell><action><actionName>ViewAssemblyNames</actionName></action></Tell>
+        </Sequence>
+	  
+	</Replicate>
+  
+</Agent>

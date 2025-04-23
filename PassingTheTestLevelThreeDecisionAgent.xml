@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>PassingTheTestLevelThreeDecisionAgent</AgentName>
+		<Choice>
+			<ChoiceOption>
+                <Ask><action><actionName>PassTheTest</actionName></action></Ask>
+				<OptionAction>
+                    <Tell><element><elementName>TestResultOfFinalAssemblyTest</elementName></element></Tell>
+                </OptionAction>
+			</ChoiceOption>
+            <ChoiceOption>
+                <Ask><action><actionName>FailTheTest</actionName></action></Ask>
+				<OptionAction>
+					<Sequence>
+                        <Compose>
+                            <AgentCommand>
+                                <AgentName>FailTestsAgent</AgentName>
+                                <Ask><action><actionName>CreateFailNode</actionName></action><internal>true</internal></Ask>
+                            </AgentCommand>
+                            <Tell><action><actionName>CreateFailNode</actionName></action><internal>true</internal></Tell>
+                        </Compose>
+                        <AgentCommand><AgentName>PassingTheTestLevelThreeDecisionAgent</AgentName></AgentCommand>
+                    </Sequence>
+				</OptionAction>
+			</ChoiceOption>
+		</Choice>
+</Agent>

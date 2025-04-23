@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextCycleAgent</AgentName>
+	<Sequence>
+		<Tell><element><elementName>ChForNextCycle</elementName></element></Tell>
+		<Ask><action><actionName>ChOfFirstSubModel</actionName></action><internal>true</internal></Ask>
+		<AgentCommand><AgentName>NextCycleAgent</AgentName></AgentCommand>
+    </Sequence>
+</Agent>
+	

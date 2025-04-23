@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>DuplicateFinalTestAgent</AgentName>
+	<ProcessName>PickedTests</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>TestResultOfFinalTest</Element>
+	<Element>TestResultOfNextNewTest</Element>
+	<Element>ReNameTheTest</Element>
+    <Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<Sequence>
+			<Tell><element><elementName>TestResultOfNextNewTest</elementName></element></Tell>
+			<Tell><element><elementName>TestResultOfFinalTest</elementName></element></Tell>
+			<!-- <Ask><action><actionName>ChTestResultOfFinalTest</actionName></action><internal>true</internal></Ask> -->
+			<AgentCommand><AgentName>CopyOfFinalTestAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

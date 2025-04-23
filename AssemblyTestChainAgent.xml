@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>AssemblyTestChainAgent</AgentName>
+	<ProcessName>AssemblyTestChains</ProcessName>
+	<AvatarName>UniqueID</AvatarName>
+	<Element>ChToCreateTheAssemblyTest</Element>
+	<Element>UniqueID</Element>
+	<Element>ChToReassembleAssembly</Element>
+	<Element>Connected</Element>
+    <Compose>
+		<!-- The below line Shows the Name Of Duplicate TestChain -->
+		<Tell><action><actionName>TestChainInfo</actionName></action></Tell>
+		<Tell><action><actionName>GenUniqueId</actionName></action><internal>true</internal></Tell>
+		<Sequence>
+			<Ask><action><actionName>GenUniqueId</actionName></action><internal>true</internal></Ask>
+			<Tell><element><elementName>ChToCreateTheAssemblyTest</elementName></element></Tell>
+		</Sequence>
+		<Sequence>
+			<Ask><action><actionName>TestResultOfFinalAssemblyTest</actionName></action><internal>true</internal></Ask>
+			<Tell><element><elementName>Connected</elementName></element></Tell>
+		</Sequence>
+	</Compose>
+</Agent>

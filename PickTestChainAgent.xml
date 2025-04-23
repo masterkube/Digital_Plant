@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>PickTestChainAgent</AgentName>
+	<Sequence>
+        <Ask><action><actionName>PickTestChain</actionName></action><internal>true</internal></Ask>
+        <Compose>
+        <!-- Through the below interction the trigger is given back to the SubModel Agent for the next cycle -->
+            <AgentCommand>
+                <AgentName>ModelTestChainAgent</AgentName>
+                <Ask><action><actionName>CreateModelTestChain</actionName></action><internal>true</internal></Ask>
+            </AgentCommand>
+            <Tell><action><actionName>CreateModelTestChain</actionName></action><internal>true</internal></Tell>
+        </Compose>
+        <Ask><action><actionName>ChofMakeFirstModelTestNode</actionName></action><internal>true</internal></Ask>
+        <AgentCommand><AgentName>PickTestChainAgent</AgentName></AgentCommand>
+    </Sequence>
+</Agent>

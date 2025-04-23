@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Process>
+	<Compose>
+		<AgentCommand><AgentName>CreateModelAgent</AgentName></AgentCommand>
+		<AgentCommand><AgentName>CreateTestAgent</AgentName></AgentCommand>
+		<AgentCommand><AgentName>CreateTestChainAgent</AgentName></AgentCommand>
+	</Compose>
+	<ProcessName>User</ProcessName>
+	<ProcessFormatType>format8</ProcessFormatType>
+</Process>

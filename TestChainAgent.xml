@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>TestChainAgent</AgentName>
+	<ProcessName>TestChains</ProcessName>
+	<AvatarName>TestChainName</AvatarName>
+	<Element>TestChainName</Element>
+    <Compose>
+		<!-- The below line Shows the testchain name -->
+		<Tell><action><actionName>NameOfTheTestChain</actionName></action></Tell>
+		<!-- The below line Get you to the picking the tests agent in that we can pick which needs to do first and next and also the last -->
+		<AgentCommand><AgentName>PickTestAgent</AgentName></AgentCommand>
+    </Compose>
+</Agent>

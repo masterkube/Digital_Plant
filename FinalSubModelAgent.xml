@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FinalSubModelAgent</AgentName>
+	<ProcessName>SubModels</ProcessName>
+	<AvatarName>ReNameIt</AvatarName>
+	<Element>ReNameIt</Element>
+	<Element>ConnectWithPrevSubNode</Element>
+	<Element>ConnectWithNextSubNode</Element>
+	<Element>LinkOfTestChain</Element>
+	<Element>ModelOf</Element>
+	<Compose>
+		<Tell><action><actionName>SubModelInfo</actionName></action></Tell>
+		<Tell><element><elementName>ConnectWithPrevSubNode</elementName></element></Tell>
+		<Tell><element><elementName>ConnectWithNextSubNode</elementName></element></Tell>
+		<Sequence>
+			<Tell><element><elementName>LinkOfTestChain</elementName></element></Tell>
+			<Ask><action><actionName>ConnectWithSubModel</actionName></action><internal>true</internal></Ask>
+			<AgentCommand><AgentName>FinalSubModelLoopAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>MakeAssemblyAgent</AgentName>
+	<Choice>
+        <ChoiceOption>
+            <Ask><action><actionName>Make</actionName></action></Ask>
+            <OptionAction>
+                <Sequence>
+                    <Compose>
+                        <AgentCommand>
+                            <AgentName>AssemblyAgent</AgentName>
+                            <Ask><action><actionName>CreateAssembly</actionName></action><internal>true</internal></Ask>
+                        </AgentCommand>
+                        <Tell><action><actionName>CreateAssembly</actionName></action><internal>true</internal></Tell>
+                    </Compose>
+                    <Ask><action><actionName>GetBackToModel</actionName></action><internal>true</internal></Ask>
+                    <!-- Through the below interaction we need to passing the Channel to get Communicate between assembly and the Testchain -->
+                    <Tell><element><elementName>ForAssembly</elementName></element></Tell>
+                    <Ask><action><actionName>ChForAssembly</actionName></action><internal>true</internal></Ask>
+                    <AgentCommand><AgentName>MakeAssemblyAgent</AgentName></AgentCommand>
+                </Sequence>
+            </OptionAction>
+        </ChoiceOption>
+    </Choice>
+</Agent>

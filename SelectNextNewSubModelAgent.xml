@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>SelectNextNewSubModelAgent</AgentName>
+	<Choice>
+        <ChoiceOption>
+			<Ask><action><actionName>SelectNextNewSubModel</actionName></action></Ask>
+			<OptionAction>
+                <Sequence>
+                    <Tell><element><elementName>PickNextNewSubModel</elementName></element></Tell>
+                    <Ask><action><actionName>ChForNextSubModel</actionName></action><internal>true</internal></Ask>
+                    <AgentCommand><AgentName>SelectNextSubModelAgent</AgentName></AgentCommand>
+                </Sequence>
+            </OptionAction>
+		</ChoiceOption>
+        <ChoiceOption>
+			<Ask><action><actionName>SelectFinalSubModel</actionName></action></Ask>
+			<OptionAction>
+                <Sequence>
+                    <Tell><element><elementName>PickFinalSubModel</elementName></element></Tell>
+                    <Compose>
+						<AgentCommand><AgentName>MakeAssemblyAgent</AgentName></AgentCommand>
+						<AgentCommand><AgentName>PickSubModelLoopAgent</AgentName></AgentCommand>
+					</Compose>
+				</Sequence>
+            </OptionAction>
+		</ChoiceOption>
+	</Choice>
+</Agent>

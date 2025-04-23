@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FirstTestLoopAgent</AgentName>
+    <Sequence>
+    <!-- Waiting to get signal from the duplicated test chain node -->
+        <Ask><action><actionName>MakeFirstModelTestNode</actionName></action><internal>true</internal></Ask>
+        <Compose>
+        <!-- After the node receives signal from the testchain now this test node makes its copy node give that to the testchain -->
+            <AgentCommand>
+                <AgentName>FirstModelTestAgent</AgentName>
+                <Ask><action><actionName>CreateFirstModelTest</actionName></action><internal>true</internal></Ask>
+            </AgentCommand>
+            <Tell><action><actionName>CreateFirstModelTest</actionName></action><internal>true</internal></Tell>
+        </Compose>
+        <Tell><element><elementName>ChofMakeFirstModelTestNode</elementName></element></Tell>
+        <Ask><action><actionName>ChofMakeNextModelTestNode</actionName></action><internal>true</internal></Ask>
+        <AgentCommand><AgentName>FirstTestLoopAgent</AgentName></AgentCommand>
+    </Sequence>
+</Agent>

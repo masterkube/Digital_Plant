@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>CreateTestAgent</AgentName>
+	<Sequence>
+		<AgentCommand>
+			<AgentName>TestAgent</AgentName>
+			<Ask><action><actionName>CreateTest</actionName></action></Ask>
+		</AgentCommand>
+		<AgentCommand><AgentName>CreateTestAgent</AgentName></AgentCommand>
+	</Sequence>
+</Agent>

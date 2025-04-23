@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextModelTestAgent</AgentName>
+	<ProcessName>ModelTests</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>ChannelForPrevTestNode</Element>
+	<Element>ConnectWithPrevTestNode</Element>
+	<Element>ReNameTheTest</Element>
+	<Element>MakeNextNewModelTestNode</Element>
+	<Element>ChOfMakeNextNewModelTestNode</Element>
+	<Element>Testing</Element>
+	<Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<AgentCommand><AgentName>NextAssemblyTestLoopAgent</AgentName></AgentCommand>
+		<AgentCommand><AgentName>NextSubModelTestLoopAgent</AgentName></AgentCommand>
+		<Sequence>
+			<Tell><element><elementName>ConnectWithPrevTestNode</elementName></element></Tell>
+			<Tell><element><elementName>MakeNextNewModelTestNode</elementName></element></Tell>
+			<Ask><action><actionName>ConnectWithNextTestNode</actionName></action><internal>true</internal></Ask>
+    	</Sequence>
+	</Compose>
+</Agent>

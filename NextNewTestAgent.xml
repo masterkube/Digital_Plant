@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>NextNewTestAgent</AgentName>
+	<ProcessName>TestsInTestChain</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>ReNameTheTest</Element>
+	<Element>ConnectWithNextTestNodeOfTestChain</Element>
+	<Element>ChannelForNextTestNodeOfTestChain</Element>
+	<Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+        <Sequence>
+			<Tell><element><elementName>ConnectWithNextTestNodeOfTestChain</elementName></element></Tell>
+			<Tell><element><elementName>ChannelForNextTestNodeOfTestChain</elementName></element></Tell>
+			<Ask><action><actionName>ConnectWithPrevTestNodeOfTestChain</actionName></action><internal>true</internal></Ask>
+            <AgentCommand><AgentName>NextNewTestLoopAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

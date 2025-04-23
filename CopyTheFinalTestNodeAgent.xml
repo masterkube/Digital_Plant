@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>CopyTheFinalTestNodeAgent</AgentName>
+	<ProcessName>SubAssemblyTests</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>LinkWithPrevNode</Element>
+	<Element>ReNameTheTest</Element>
+    <Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<Sequence>
+			<Tell><element><elementName>LinkWithPrevNode</elementName></element></Tell>
+			<Ask><action><actionName>ChLinkWithPrevNode</actionName></action><internal>true</internal></Ask>
+			<Tell><element><elementName>LinkWithLastNode</elementName></element></Tell>
+		</Sequence>
+	</Compose>
+</Agent>

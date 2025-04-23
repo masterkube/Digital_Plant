@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FinalSubAsmblyAgnt</AgentName>
+	<ProcessName>SubAssemblies</ProcessName>
+	<AvatarName>UniqueID</AvatarName>
+	<Element>UniqueID</Element>
+	<Element>ConnectWithNextNewSubAssembly</Element>
+	<Element>GetBackToFinalSubModel</Element>
+	<Compose>
+		<Tell><action><actionName>SubAssemblyInfo</actionName></action></Tell>	
+		<Sequence>
+			<Tell><element><elementName>GetBackToFinalSubModel</elementName></element></Tell>
+			<Tell><element><elementName>ConnectWithNextNewSubAssembly</elementName></element><internal>true</internal></Tell>
+			<Ask><action><actionName>AttachWithAssembly</actionName></action></Ask>
+			<Tell><element><elementName>PickAssembly</elementName></element></Tell>
+			<Ask><action><actionName>GetNameOfTheAssembly</actionName></action><internal>true</internal></Ask>
+			<Tell><action><actionName>AssemblyIs</actionName></action></Tell>
+		</Sequence>
+	</Compose>
+</Agent>

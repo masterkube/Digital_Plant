@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>SelectSubModelAgent</AgentName>
+		<Choice>
+            <ChoiceOption>
+				<Ask><action><actionName>SelectSubModel</actionName></action></Ask>
+				<OptionAction>
+					<Sequence>
+						<Tell><element><elementName>PickSubModel</elementName></element></Tell>
+						<Ask><action><actionName>ChForFirstSubModel</actionName></action><internal>true</internal></Ask>
+						<Compose>
+							<AgentCommand><AgentName>NextCycleAgent</AgentName></AgentCommand>
+							<AgentCommand><AgentName>SelectNextSubModelAgent</AgentName></AgentCommand>
+						</Compose>
+					</Sequence>
+				</OptionAction>
+			</ChoiceOption>
+		</Choice>
+</Agent>
+	

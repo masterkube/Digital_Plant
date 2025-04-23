@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>SubmodelTestChainLoopAgent</AgentName>
+	<Sequence>
+		<Ask><action><actionName>Trigger</actionName></action><internal>true</internal></Ask>
+		<Tell><element><elementName>ConnectWithSubModel</elementName></element></Tell>
+		<Compose>
+            <AgentCommand>
+	               <AgentName>SubAssemblyTestChainAgent</AgentName>
+           	    <Ask><action><actionName>CreateSubAssemblyTestChain</actionName></action><internal>true</internal></Ask>
+               </AgentCommand>
+               <Tell><action><actionName>CreateSubAssemblyTestChain</actionName></action><internal>true</internal></Tell>
+           </Compose>
+		<Ask><action><actionName>GetBackToSubmodelTestChainAgent</actionName></action><internal>true</internal></Ask>
+		<Tell><element><elementName>ChTestResultOfFirstTest</elementName></element></Tell>
+		<!-- <Tell><element><elementName>ChTestResultOfFinalTest</elementName></element></Tell> -->
+		<Ask><action><actionName>TestResultOfFirstTest</actionName></action><internal>true</internal></Ask>
+		<!-- <Ask><action><actionName>TestResultOfFinalTest</actionName></action><internal>true</internal></Ask> -->
+		<!-- <Tell><element><elementName>ChConnectWithSubModel</elementName></element></Tell> -->
+		<AgentCommand><AgentName>SubmodelTestChainLoopAgent</AgentName></AgentCommand>
+	</Sequence>
+</Agent>

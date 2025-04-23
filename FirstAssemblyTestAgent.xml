@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FirstAssemblyTestAgent</AgentName>
+	<ProcessName>AssemblyTests</ProcessName>
+	<AvatarName>UniqueID</AvatarName>
+	<Element>TestResultOfFirstAssemblyTest</Element>
+	<Element>ChBacktoNextAssemblyTest</Element>
+	<Element>UniqueID</Element>
+	<Element>ReNameTheTest</Element>
+    <Compose>
+		<Tell><action><actionName>AssemblyTestInfo</actionName></action></Tell>
+		<Tell><element><elementName>ChBacktoNextAssemblyTest</elementName></element></Tell>
+		<Ask><action><actionName>GenUniqueId</actionName></action><internal>true</internal></Ask>
+		<Sequence>
+			<Tell><action><actionName>GenUniqueId</actionName></action><internal>true</internal></Tell>
+			<Ask><action><actionName>TestResultOfNextAssemblyTest</actionName></action><internal>true</internal></Ask>
+			<AgentCommand><AgentName>PassingTheTestLevelOneDecisionAgent</AgentName></AgentCommand>
+		</Sequence>
+	</Compose>
+</Agent>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>TestAgent</AgentName>
+	<ProcessName>TestModels</ProcessName>
+	<AvatarName>TestName</AvatarName>
+	<Element>TestName</Element>
+    <Compose>
+	<!-- The below line Shows the test name -->
+	    <Tell><action><actionName>NameOfTheTest</actionName></action></Tell>
+	<!-- The below agent gets you to the loop agent Which determines which place that this test going to be palced in the chain -->
+		<Choice>
+			<ChoiceOption>
+			<!-- Getting the Name for the duplicate testnode from the testchain node and also the channel to connect with the testchain from the duplicate node        		<Ask><action><actionName>PickTest</actionName></action><internal>true</internal></Ask> -->
+				<Ask><action><actionName>PickTest</actionName></action><internal>true</internal></Ask>
+				<OptionAction>
+				<!-- Create a Duplicate of this testnode and Handover the channel to connect with the next testnode in a row -->
+					<Sequence>
+						<Compose>
+							<AgentCommand>
+								<AgentName>FirstTestAgent</AgentName>
+								<Ask><action><actionName>CreateFirstTest</actionName></action><internal>true</internal></Ask>
+							</AgentCommand>
+							<Tell><action><actionName>CreateFirstTest</actionName></action><internal>true</internal></Tell>
+						</Compose>
+						<AgentCommand><AgentName>TestLoopAgent</AgentName></AgentCommand>
+					</Sequence>
+				</OptionAction>
+			</ChoiceOption>
+			<ChoiceOption>
+				<Ask><action><actionName>PickNextTest</actionName></action><internal>true</internal></Ask>
+				<OptionAction>
+					<Sequence>
+						<Compose>
+							<AgentCommand>
+								<AgentName>NextTestAgent</AgentName>
+							<Ask><action><actionName>CreateNextTest</actionName></action><internal>true</internal></Ask>
+							</AgentCommand>
+							<Tell><action><actionName>CreateNextTest</actionName></action><internal>true</internal></Tell>
+						</Compose>
+					<AgentCommand><AgentName>TestLoopAgent</AgentName></AgentCommand>
+					</Sequence>
+				</OptionAction>
+			</ChoiceOption>
+			<ChoiceOption>
+				<Ask><action><actionName>PickNextNewTest</actionName></action><internal>true</internal></Ask>
+				<OptionAction>
+					<Sequence>
+						<Compose>
+							<AgentCommand>
+								<AgentName>NextNewTestAgent</AgentName>
+								<Ask><action><actionName>CreateNextNewTest</actionName></action><internal>true</internal></Ask>
+							</AgentCommand>
+							<Tell><action><actionName>CreateNextNewTest</actionName></action><internal>true</internal></Tell>
+						</Compose>
+						<AgentCommand><AgentName>TestLoopAgent</AgentName></AgentCommand>
+					</Sequence>
+				</OptionAction>
+			</ChoiceOption>
+			<ChoiceOption>
+				<Ask><action><actionName>PickFinalTest</actionName></action><internal>true</internal></Ask>
+				<OptionAction>
+					<Sequence>
+						<Compose>
+							<AgentCommand>
+								<AgentName>FinalTestAgent</AgentName>
+								<Ask><action><actionName>CreateFinalTest</actionName></action><internal>true</internal></Ask>
+							</AgentCommand>
+							<Tell><action><actionName>CreateFinalTest</actionName></action><internal>true</internal></Tell>
+						</Compose>
+						<AgentCommand><AgentName>TestLoopAgent</AgentName></AgentCommand>
+					</Sequence>
+				</OptionAction>
+			</ChoiceOption>
+		</Choice>
+    </Compose>
+</Agent>

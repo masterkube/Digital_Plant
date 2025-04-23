@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>FirstTestAgent</AgentName>
+	<ProcessName>TestsInTestChain</ProcessName>
+	<AvatarName>ReNameTheTest</AvatarName>
+	<Element>ReNameTheTest</Element>
+	<Element>FirstTest</Element>
+	<Element>CHForNextTestNodeOfTestChain</Element>
+    <Compose>
+		<Tell><action><actionName>TestNodeInfo</actionName></action></Tell>
+		<Sequence>
+		<!-- through the below link this testnode is getting connected with the upstream testchain node -->
+			<Tell><element><elementName>CHForNextTestNodeOfTestChain</elementName></element></Tell>
+			<!-- Channel link to getting connecting with the Test node that the testchain is going to select next -->
+			<Ask><action><actionName>ConnectWithPrevTestNodeOfTestChain</actionName></action><internal>true</internal></Ask>
+            <AgentCommand><AgentName>FirstTestLoopAgent</AgentName></AgentCommand>
+        </Sequence>
+	</Compose>
+</Agent>

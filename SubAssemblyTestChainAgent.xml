@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>SubAssemblyTestChainAgent</AgentName>
+	<ProcessName>SubAssemblyTestChains</ProcessName>
+	<AvatarName>ReNameIt</AvatarName>
+	<Element>TestchainLinkforSubassembly</Element>
+	<Element>ReNameIt</Element>
+	<Element>GetBackToSubmodelTestChainAgent</Element>
+    <Compose>
+		<!-- The below line Shows the Name Of Duplicate TestChain -->
+		<Tell><action><actionName>TestChainInfo</actionName></action></Tell>
+		<Sequence>
+			<Tell><element><elementName>GetBackToSubmodelTestChainAgent</elementName></element></Tell>
+			<Ask><action><actionName>LinkWithPrevNode</actionName></action><internal>true</internal></Ask>
+			<Tell><element><elementName>ChLinkWithPrevNode</elementName></element></Tell>
+			<Ask><action><actionName>LinkWithLastNode</actionName></action><internal>true</internal></Ask>
+		</Sequence>
+	</Compose>
+</Agent>

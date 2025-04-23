@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>ModelChoiceAgent</AgentName>
+	<Choice>
+		<ChoiceOption>
+		<!-- this is the option to declare like this node is has no leaf nodes -->
+			<Ask><action><actionName>Assembly</actionName></action></Ask>
+			<OptionAction>
+				<Compose>
+					<Tell><action><actionName>ModelInfo</actionName></action></Tell>
+					<AgentCommand><AgentName>SelectSubModelAgent</AgentName></AgentCommand>
+				</Compose>
+			</OptionAction>
+		</ChoiceOption>
+		<ChoiceOption>
+				<!-- this is the option to declare like this node is has leaf nodes -->
+			<Ask><action><actionName>Components</actionName></action></Ask>
+			<OptionAction>
+				<Compose>
+					<Tell><action><actionName>ModelInfo</actionName></action></Tell>
+					<AgentCommand><AgentName>PickSubModelAgent</AgentName></AgentCommand>
+					<AgentCommand><AgentName>MakeAssemblyAgent</AgentName></AgentCommand>
+				</Compose>
+			</OptionAction>
+		</ChoiceOption>
+	</Choice>
+</Agent>

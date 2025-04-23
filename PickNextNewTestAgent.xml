@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Agent>
+	<AgentName>PickNextNewTestAgent</AgentName>
+	    <Choice>
+			<ChoiceOption>
+        		<Ask><action><actionName>AddNextNewTest</actionName></action></Ask>
+				<OptionAction>
+                    <Sequence>
+						<Tell><element><elementName>PickNextNewTest</elementName></element></Tell>
+        				<Ask><action><actionName>ChannelForNextTestNodeOfTestChain</actionName></action><internal>true</internal></Ask>
+                        <AgentCommand><AgentName>PickNextTestAgent</AgentName></AgentCommand>
+                    </Sequence>
+                </OptionAction>
+			</ChoiceOption>
+			<ChoiceOption>
+        		<Ask><action><actionName>AddFinalTest</actionName></action></Ask>
+				<OptionAction>
+                    <Sequence>
+						<Tell><element><elementName>PickFinalTest</elementName></element></Tell>
+						<AgentCommand><AgentName>PickTestChainAgent</AgentName></AgentCommand>
+					</Sequence>
+                </OptionAction>
+			</ChoiceOption>
+		</Choice>
+</Agent>
